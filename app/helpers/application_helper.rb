@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def title
-		base_title = "A Sample Application"
+		base_title = "Sample Application"
 		if !@title.nil?
 			base_title = "#{base_title} | #{@title}"
 		end
