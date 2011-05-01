@@ -46,6 +46,15 @@ class User < ActiveRecord::Base
 		end
 	end
 	
+	def self.authenticate_with_salt(id, cookie_salt)
+		user = find_by_id(id)
+		if user.nil?
+			return nil
+		elsif user.salt == cookie_salt
+			return user
+		end
+	end
+	
 	private
 	
 		#makes a new salt if this is the first time 
